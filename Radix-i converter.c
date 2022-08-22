@@ -44,14 +44,14 @@ int main(){
     while (true){
         printf("Enter a decimal number: "); // Prompts the user to enter a decimal number
         scanf("%d",&decValue);           // Stores the decimal value
-        if(decValue == -1){             // If the decimal value is -1
+        if(decValue < 0){             // If the decimal value is -1
             printf("EXIT\n");         // Prints EXIT
             break;                 // Breaks the loop
         }
         printf("The number you have entered is %d\n",decValue); // Prints the decimal value
         printf("Enter a radix for the converter between 2 and 16: ");   // Prompts the user to enter a radix for the converter
         scanf("%d",&radValue);         // Stores the radix-i value
-        if(radValue == -1 || radValue < 2 || radValue > 16){    // If the radix-i value is -1, less than 2, or greater than 16
+        if(radValue < 0 || radValue < 2 || radValue > 16){    // If the radix-i value is -1, less than 2, or greater than 16
             printf("EXIT\n");   // Prints EXIT
             break;           // Breaks the loop
         }
