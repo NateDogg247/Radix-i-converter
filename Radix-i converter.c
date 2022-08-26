@@ -7,11 +7,11 @@
 #define YEAR "2022"
 
 void print_header(){    // Prints the header of the program
-    printf("***************************");
-    printf("\n%s",TITLE);   // Prints the title of the program
-    printf("\nWritten by: %s",AUTHOR);  // Prints the author of the program
-    printf("\nDate: %s",YEAR);  // Prints the year of the program
-    printf("\n***************************\n");
+    printf("*****************************");
+    printf("\n %s",TITLE);   // Prints the title of the program
+    printf("\n Written by: %s",AUTHOR);  // Prints the author of the program
+    printf("\n Date: %s",YEAR);  // Prints the year of the program
+    printf("\n*****************************\n");
 }
 
 char* Dec2RadixI(int decValue, int radValue){   // Converts a decimal value to a radix-i value
@@ -41,24 +41,25 @@ int main(){
     int decValue;   // Stores the decimal value
     int radValue;   // Stores the radix-i value
 
-    while (true){
+    while (decValue > 0){
         printf("Enter a decimal number: "); // Prompts the user to enter a decimal number
         scanf("%d",&decValue);           // Stores the decimal value
-        if(decValue < 0){             // If the decimal value is -1
+        if(decValue < 0){             // If the decimal value is less than 0
             printf("EXIT\n");         // Prints EXIT
             break;                 // Breaks the loop
         }
-        printf("The number you have entered is %d\n",decValue); // Prints the decimal value
+        printf("The decimal number you have entered is %d\n",decValue); // Prints the decimal value
         printf("Enter a radix for the converter between 2 and 16: ");   // Prompts the user to enter a radix for the converter
         scanf("%d",&radValue);         // Stores the radix-i value
-        if(radValue < 0 || radValue < 2 || radValue > 16){    // If the radix-i value is -1, less than 2, or greater than 16
+        if(radValue < 0 || radValue < 2 || radValue > 16){    // If the radix-i value is less than 0, less than 2, or greater than 16
             printf("EXIT\n");   // Prints EXIT
             break;           // Breaks the loop
         }
         printf("The radix you have entered is %d\n",radValue);  // Prints the radix-i value
         printf("The log2 of the number is %.2lf\n",log2(decValue)); // Prints the log2 of the decimal value
-        printf("The integer result of the number divided by 2 is %d\n",decValue/2); // Prints the integer result of the decimal value divided by 2
-        printf("The remainder is %d\n",decValue%2); // Prints the remainder of the decimal value divided by 2
+        printf("The integer result of the number divided by %d",radValue);
+        printf(" is %d\n",decValue/radValue); // Prints the integer result of the decimal value divided by radvalue
+        printf("The remainder is %d\n",decValue%radValue); // Prints the remainder of the decimal value divided by radvalue
         printf("The radix-%d value is ",radValue);  // Prints the radix-i value
         printf("%s\n",Dec2RadixI(decValue,radValue));   // Prints the radix-i value
     }
